@@ -1,0 +1,28 @@
+{
+  "name": "mars-rover-test",
+  "version": "0.0.0",
+  "description": "codeing challenge test",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/tmclemons/codetest.git"
+  },
+  "author": "tmclemons",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tmclemons/codetest/issues"
+  },
+  "homepage": "https://github.com/tmclemons/codetest",
+  "dependencies": {},
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "grunt": "^1.0.1",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-jasmine": "^1.0.3",
+    "grunt-contrib-watch": "^1.0.0",
+    "gulp-jasmine": "^2.4.2"
+  }
+}
