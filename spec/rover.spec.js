@@ -188,7 +188,7 @@ describe('Mars Rover Test', () => {
 
     it('since grid is a sphere location should reset after passing grid limits', function() {
 
-      var roverTest = new roverCommands([3, 9], 'North', [10, 10]);
+      var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
 
       roverTest.commandInput(['forward']);
 

@@ -22,11 +22,21 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
         } else if (input[i] === 'left' || input[i] === 'right'){
           turnRover(input[i]);
         }
-
       }
+      locationReset();
       this.resultArray = input;
     } else {
       return this.resultArray;
+    }
+  }
+
+  function locationReset(){
+    var locationRestTestX = rover.coordinates[0] >= rover.gridSpace[0];
+    var locationRestTestY = rover.coordinates[1] >= rover.gridSpace[1];
+    if(locationRestTestX || locationRestTestY) {
+      locationCalcXCoord = (rover.coordinates[0] + rover.gridSpace[0]) % rover.gridSpace[0];
+      locationCalcYCoord = (rover.coordinates[1] + rover.gridSpace[1]) % rover.gridSpace[1];
+      rover.coordinates = [locationCalcXCoord, locationCalcYCoord];
     }
   }
 
