@@ -51,7 +51,7 @@ describe('Mars Rover Test', () => {
   describe('Implement commands that move the rover forward/backward (f,b)', () => {
     // setup for directional input
 
-    it('Y coordinate decreases while moving north', function() {
+    it('Y coordinate decreases while moving forward north', function() {
 
       var roverTest = new roverCommands([43, 12], 'North');
 
@@ -60,7 +60,7 @@ describe('Mars Rover Test', () => {
       expect(roverTest.coordinates).toEqual([43, 9]);
     });
 
-    it('Y coordinate increase while moving north', function() {
+    it('Y coordinate increase while moving forward north', function() {
 
       var roverTest = new roverCommands([20, 12], 'South');
 
@@ -69,7 +69,7 @@ describe('Mars Rover Test', () => {
       expect(roverTest.coordinates).toEqual([20, 15]);
     });
 
-    it('X coordinate increase while moving east', function() {
+    it('X coordinate increase while movingforward  east', function() {
 
       var roverTest = new roverCommands([20, 12], 'East');
 
@@ -78,7 +78,7 @@ describe('Mars Rover Test', () => {
       expect(roverTest.coordinates).toEqual([22, 12]);
     });
 
-    it('X coordinate decrease while moving west', function() {
+    it('X coordinate decrease while moving forward west', function() {
 
       var roverTest = new roverCommands([20, 12], 'West');
 
@@ -86,6 +86,43 @@ describe('Mars Rover Test', () => {
 
       expect(roverTest.coordinates).toEqual([18, 12]);
     });
+
+
+        it('Y coordinate increase while moving backward north', function() {
+
+          var roverTest = new roverCommands([43, 12], 'North');
+
+          roverTest.commandInput(['backward', 'backward', 'backward']);
+
+          expect(roverTest.coordinates).toEqual([43, 15]);
+        });
+
+        it('Y coordinate decrease while moving backward north', function() {
+    
+          var roverTest = new roverCommands([20, 15], 'South');
+
+          roverTest.commandInput(['backward', 'backward', 'backward']);
+
+          expect(roverTest.coordinates).toEqual([20, 12]);
+        });
+
+        it('X coordinate decrease while moving backward  east', function() {
+
+          var roverTest = new roverCommands([22, 12], 'East');
+
+          roverTest.commandInput(['backward', 'backward']);
+
+          expect(roverTest.coordinates).toEqual([20, 12]);
+        });
+
+        it('X coordinate increase while moving backward west', function() {
+
+          var roverTest = new roverCommands([20, 12], 'West');
+
+          roverTest.commandInput(['backward', 'backward']);
+
+          expect(roverTest.coordinates).toEqual([22, 12]);
+        });
 
   });
 
