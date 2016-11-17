@@ -59,6 +59,34 @@ describe('Mars Rover Test', () => {
 
       expect(roverTest.coordinates).toEqual([43, 9]);
     });
+
+    it('Y coordinate increase while moving north', function() {
+
+      var roverTest = new roverCommands([20, 12], 'South');
+
+      roverTest.commandInput(['forward', 'forward', 'forward']);
+
+      expect(roverTest.coordinates).toEqual([20, 15]);
+    });
+
+    it('X coordinate increase while moving east', function() {
+
+      var roverTest = new roverCommands([20, 12], 'East');
+
+      roverTest.commandInput(['forward', 'forward']);
+
+      expect(roverTest.coordinates).toEqual([22, 12]);
+    });
+
+    it('X coordinate decrease while moving west', function() {
+
+      var roverTest = new roverCommands([20, 12], 'West');
+
+      roverTest.commandInput(['forward', 'forward']);
+
+      expect(roverTest.coordinates).toEqual([18, 12]);
+    });
+
   });
 
 });

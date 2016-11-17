@@ -3,10 +3,13 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
 
   var coordinates = !coordinates ? [0,0] : coordinates;
   var direction = !direction ? 'North' : direction;
+  var directions = ['North', 'East', 'South', 'West'];
+
 
   rover.coordinates = coordinates;
   rover.direction = direction;
   rover.commandInput = commandInput;
+  rover.directions = directions;
 
   function commandInput (input){
     if (input) {
@@ -32,15 +35,27 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
       case 'South':
         yMove = 1;
         break;
+      case 'East':
+        xMove = 1;
+        break;
+      case 'West':
+        xMove = -1;
+        break;
       default:
-        yMove = -1;
+        xMove = 0;
+        yMove = 0;
+    }
+
+    if (input === 'backward') {
+        xMove *= -1;
+        yMove *= -1;
     }
 
     var updatedCoordinates = [
       rover.coordinates[0] + xMove,
       rover.coordinates[1] + yMove
     ];
-    
+
     rover.coordinates = updatedCoordinates;
   }
 
