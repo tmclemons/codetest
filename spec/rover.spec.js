@@ -222,9 +222,12 @@ describe('Mars Rover Test', () => {
 
     it('doesnt intersect with obstacle and stops moving ', function() {
 
-      var roverTest = new roverCommands([3, 9], 'North', [[10, 11], [5, 10]]);
-      roverTest.commandInput(['backward', 'backward']);
-      expect(roverTest.coordinates).toEqual([3, 10]);
+      var roverTest = new roverCommands([0, 0], 'East');
+
+        roverTest.obstacles = [[5, 1], [3, 0]];
+
+        roverTest.commandInput(['forward', 'forward', 'forward']);
+        expect(roverTest.coordinates).toEqual([2, 0]);
     });
 
     it('updates user with obstacle detection information,' +

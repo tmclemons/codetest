@@ -61,22 +61,31 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
   function moveRover(input){
     var xMove = 0;
     var yMove = 0;
-    switch (rover.direction) {
-      case 'North':
-        yMove = -1;
-        break;
-      case 'South':
-        yMove = 1;
-        break;
-      case 'East':
+    // switch (rover.direction) {
+    //   case 'North':
+    //     yMove = -1;
+    //     break;
+    //   case 'South':
+    //     yMove = 1;
+    //     break;
+    //   case 'East':
+    //     xMove = 1;
+    //     break;
+    //   case 'West':
+    //     xMove = -1;
+    //     break;
+    //   default:
+    //     xMove = -1;
+    // }
+
+    if (rover.direction === 'North') {
+      yMove = -1;
+    } else if (rover.direction === 'East') {
         xMove = 1;
-        break;
-      case 'West':
+    } else if (rover.direction === 'South') {
+        yMove = 1;
+    } else if (rover.direction === 'West') {
         xMove = -1;
-        break;
-      default:
-        xMove = 0;
-        yMove = 0;
     }
 
     if (input === 'backward') {
@@ -89,7 +98,23 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
       rover.coordinates[1] + yMove
     ];
 
+
+    if(isThereAnObstacle(updatedCoordinates)){
+      return false;
+    }
+
     rover.coordinates = updatedCoordinates;
+    return true;
+  }
+
+
+  function isThereAnObstacle(updatedLocation){
+    for (let i = 0; i < rover.obstacles.length; i++) {
+      if (updatedLocation.toString() == rover.obstacles[i].toString()) {
+        return true;
+      }
+    }
+    return false
   }
 
 };
