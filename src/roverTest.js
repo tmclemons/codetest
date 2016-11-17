@@ -4,12 +4,14 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
   var coordinates = !coordinates ? [0,0] : coordinates;
   var direction = !direction ? 'North' : direction;
   var directions = ['North', 'East', 'South', 'West'];
+  var gridSpace = !gridSpace ? [100, 100] : gridSpace;
 
 
   rover.coordinates = coordinates;
   rover.direction = direction;
   rover.commandInput = commandInput;
   rover.directions = directions;
+  rover.gridSpace = gridSpace;
 
   function commandInput (input){
     if (input) {

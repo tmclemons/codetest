@@ -170,4 +170,15 @@ describe('Mars Rover Test', () => {
 
   });
 
+  describe('Implement wrapping from one edge of the grid to another', () => {
+
+    it('confirm grid size, by assigning new one', function() {
+
+      var roverTest = new roverCommands([0, 0], 'North', [30, 30]);
+
+      expect(roverTest.gridSpace).toEqual([30, 30]);
+    });
+
+  });
+
 });
