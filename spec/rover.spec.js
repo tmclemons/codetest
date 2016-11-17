@@ -5,3 +5,22 @@
 //   Implement commands that turn the rover left/right (l,r).
 //   Implement wrapping from one edge of the grid to another. (planets are spheres after all)
 //   Implement obstacle detection before each move to a new square. If a given sequence of commands encounters an obstacle, the rover moves up to the last possible point and reports the obstacle.
+
+describe('Mars Rover Test', () => {
+
+  describe('You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.', () => {
+
+    it('set the starting location', done => {
+      // body...
+    });
+
+    it('starting location should be [x, y] = [0, 0] by default', done => {
+      // body...
+    });
+
+    it('defualt direction should be North at start', done => {
+      // body...
+    });
+    
+  });
+});
