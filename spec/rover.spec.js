@@ -233,16 +233,20 @@ describe('Mars Rover Test', () => {
     it('updates user with obstacle detection information,' +
     'but creating status update', function() {
 
-      // var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
-      //
-      // expect(roverTest.coordinates).toEqual([3, 0]);
+      var roverTest = new roverCommands([0, 0], 'East');
+
+      roverTest.obstacles = [1 , 0];
+
+      roverTest.commandInput(['forward']);
+      expect(roverTest.staus).toEqual('There is an Obstacle');
     });
 
     it('status update when there is no obstacle', function() {
 
-      // var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
-      //
-      // expect(roverTest.coordinates).toEqual([3, 0]);
+      var roverTest = new roverCommands([0, 0], 'East');
+
+      roverTest.commandInput(['forward']);
+      expect(roverTest.staus).toEqual('There is NO Obstacle');
     });
 
   });
