@@ -6,5 +6,14 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
 
   rover.coordinates = coordinates;
   rover.direction = direction;
+  rover.commandInput = commandInput;
+
+  function commandInput (input){
+    if (input) {
+      this.resultArray = input;
+    } else {
+      return this.resultArray;
+    }
+  }
 
 };
