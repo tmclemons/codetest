@@ -197,4 +197,43 @@ describe('Mars Rover Test', () => {
 
   });
 
+  //obstacle detection
+  describe ('Implement obstacle detection before each move to a new square.' +
+  'If a given sequence of commands encounters an obstacle,' +
+  'the rover moves up to the last' +
+  'possible point and reports the obstacle.', () => {
+
+
+    it('test for obstacles existing', function() {
+
+      var roverTest = new roverCommands([3, 9], 'South', [10, 10], [[3, 3], [6, 6]]);
+
+      expect(roverTest.obstacles).toEqual([[3, 3], [6, 6]]);
+      
+    });
+
+    it('doesnt intersect with obstacle and stops moving ', function() {
+
+      // var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
+      //
+      // expect(roverTest.coordinates).toEqual([3, 0]);
+    });
+
+    it('updates user with obstacle detection information,' +
+    'but creating status update', function() {
+
+      // var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
+      //
+      // expect(roverTest.coordinates).toEqual([3, 0]);
+    });
+
+    it('status update when there is no obstacle', function() {
+
+      // var roverTest = new roverCommands([3, 9], 'South', [10, 10]);
+      //
+      // expect(roverTest.coordinates).toEqual([3, 0]);
+    });
+
+  });
+
 });
