@@ -10,17 +10,21 @@ describe('Mars Rover Test', () => {
 
   describe('You are given the initial starting point (x,y) of a rover and the direction (N,S,E,W) it is facing.', () => {
 
-    it('set the starting location', done => {
-      // body...
+    it('set the starting location', function() {
+      var roverTest = new roverCommands([10, 30]);
+      expect(roverTest.coordinates).toEqual([10, 30]);
+
     });
 
-    it('starting location should be [x, y] = [0, 0] by default', done => {
-      // body...
+    it('starting location should be [x, y] = [0, 0] by default', function() {
+      var roverTest = new roverCommands();
+      expect(roverTest.coordinates).toEqual([0, 0]);
     });
 
-    it('defualt direction should be North at start', done => {
-      // body...
+    it('defualt direction should be North at start', function() {
+      var roverTest = new roverCommands([10, 30], 'North');
+      expect(roverTest.direction).toEqual('North');
     });
-    
+
   });
 });

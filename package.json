@@ -4,6 +4,7 @@
   "description": "codeing challenge test",
   "main": "index.js",
   "scripts": {
+    "pretest": "npm install",
     "test": "grunt jasmine"
   },
   "repository": {

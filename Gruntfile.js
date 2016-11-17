@@ -7,7 +7,7 @@ module.exports = function(grunt) {
                     'bower_components/jasmine/lib/jasmine-core/jasmine.js',
                     'bower_components/jasmine/lib/jasmine-core/jasmine-html.js',
                     'bower_components/jasmine/lib/jasmine-core/boot.js',
-                    'src/roverCommands.js'
+                    'src/roverTest.js'
                 ],
                 options: {
                     specs: 'spec/rover.spec.js',
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
             }
         },
         watch: {
-            files: ['src/roverCommands.js', 'spec/rover.spec.js'],
+            files: ['src/roverTest.js', 'spec/rover.spec.js'],
             tasks: ['jasmine']
         }
     });
