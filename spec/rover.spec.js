@@ -48,4 +48,17 @@ describe('Mars Rover Test', () => {
 
   });
 
+  describe('Implement commands that move the rover forward/backward (f,b)', () => {
+    // setup for directional input
+
+    it('Y coordinate decreases while moving north', function() {
+
+      var roverTest = new roverCommands([43, 12], 'North');
+
+      roverTest.commandInput(['forward', 'forward', 'forward']);
+
+      expect(roverTest.coordinates).toEqual([43, 9]);
+    });
+  });
+
 });
