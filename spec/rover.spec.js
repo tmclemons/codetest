@@ -209,7 +209,15 @@ describe('Mars Rover Test', () => {
       var roverTest = new roverCommands([3, 9], 'South', [10, 10], [[3, 3], [6, 6]]);
 
       expect(roverTest.obstacles).toEqual([[3, 3], [6, 6]]);
-      
+
+    });
+
+
+    it('null check for case when no obstacles exist ', function() {
+
+      var roverTest = new roverCommands([3, 9], 'South');
+
+      expect(roverTest.obstacles).toEqual([]);
     });
 
     it('doesnt intersect with obstacle and stops moving ', function() {
