@@ -179,6 +179,22 @@ describe('Mars Rover Test', () => {
       expect(roverTest.gridSpace).toEqual([30, 30]);
     });
 
+    it('confirm grid size with no value', function() {
+
+      var roverTest = new roverCommands([0, 0], 'North');
+
+      expect(roverTest.gridSpace).toEqual([100, 100]);
+    });
+
+    it('since grid is a sphere location should reset after passing grid limits', function() {
+
+      var roverTest = new roverCommands([3, 9], 'North', [10, 10]);
+
+      roverTest.commandInput(['forward']);
+
+      expect(roverTest.coordinates).toEqual([3, 0]);
+    });
+
   });
 
 });
