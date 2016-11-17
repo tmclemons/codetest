@@ -98,7 +98,7 @@ describe('Mars Rover Test', () => {
         });
 
         it('Y coordinate decrease while moving backward north', function() {
-    
+
           var roverTest = new roverCommands([20, 15], 'South');
 
           roverTest.commandInput(['backward', 'backward', 'backward']);
@@ -123,6 +123,50 @@ describe('Mars Rover Test', () => {
 
           expect(roverTest.coordinates).toEqual([22, 12]);
         });
+
+  });
+
+  // tests for turning
+  describe('Implement commands that turn the rover left/right (l,r).', function() {
+
+    it('directions should changes from east to south when turning right', function() {
+
+      var roverTest = new roverCommands([0, 0], 'East');
+
+      roverTest.commandInput(['right']);
+
+      expect(roverTest.direction).toEqual('South');
+    });
+
+
+    it('directions should changes from west to south when turning left', function() {
+
+      var roverTest = new roverCommands([0, 0], 'West');
+
+      roverTest.commandInput(['left']);
+
+      expect(roverTest.direction).toEqual('South');
+    });
+
+    it('directions should changes from north to west when turning left', function() {
+
+      var roverTest = new roverCommands([0, 0], 'North');
+
+      roverTest.commandInput(['left']);
+
+      expect(roverTest.direction).toEqual('West');
+    });
+
+
+    it('directions should changes from north to east when turning right', function() {
+
+      var roverTest = new roverCommands([0, 0], 'North');
+
+      roverTest.commandInput(['right']);
+
+      expect(roverTest.direction).toEqual('East');
+    });
+
 
   });
 

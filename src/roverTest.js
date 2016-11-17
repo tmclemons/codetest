@@ -17,12 +17,32 @@ function roverCommands (coordinates, direction, gridSpace, obstacles) {
 
         if(input[i] === 'forward' || input[i] === 'backward') {
           moveRover(input[i]);
+        } else if (input[i] === 'left' || input[i] === 'right'){
+          turnRover(input[i]);
         }
+
       }
       this.resultArray = input;
     } else {
       return this.resultArray;
     }
+  }
+
+  function turnRover(input){
+    var directionCalc;
+      //iterates through list of directions for comparision for turn
+    for (let index = 0; index < 4; index++) {
+      if (rover.directions[index] === rover.direction) {
+        directionCalc = index;
+      }
+    }
+
+    if (input === 'right') {
+      directionCalc = (directionCalc + 1) % 4;
+    } else {
+      directionCalc = (directionCalc + 4 - 1) % 4;
+    }
+      rover.direction = rover.directions[directionCalc];
   }
 
   function moveRover(input){
